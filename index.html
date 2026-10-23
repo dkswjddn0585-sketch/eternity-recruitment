@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a0c">
+<meta name="description" content="영원 ETERNITY 초기 핵심 관리진 공개 모집. 영원의 첫 시작을 함께할 인재를 모집합니다.">
+<title>ETERNITY — First Management Recruitment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffaf0;--panel:#ffffff;--panel2:#fff5df;--gold:#b68b3d;--gold2:#8d6725;
+  --muted:#746b5d;--line:rgba(182,139,61,.28);--white:#2b261e;--serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:300;line-height:1.75;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 0%,rgba(146,113,54,.12),transparent 42%),linear-gradient(180deg,#0a0b0d 0%,#090a0c 55%,#0d0d0e 100%)}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button,a{ -webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+::selection{background:var(--gold);color:#090a0c}
+.wrap{width:min(1160px,calc(100% - 44px));margin:auto}
+.topline{height:3px;background:linear-gradient(90deg,transparent,var(--gold),#f3e7c7,var(--gold),transparent)}
+header{position:sticky;top:0;z-index:20;background:rgba(9,10,12,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(201,173,114,.13)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;letter-spacing:.2em;font-size:13px;font-weight:600}
+.crest{width:36px;height:36px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold2);transform:rotate(45deg);font-family:var(--serif);font-size:20px}
+.crest span{transform:rotate(-45deg)}
+.navlinks{display:flex;align-items:center;gap:30px;color:#c8c4ba;font-size:11px;letter-spacing:.12em}
+.navlinks a:hover{color:var(--gold2)}
+.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--gold);padding:12px 19px;color:#111;background:linear-gradient(120deg,#d7bf8a,#b6975b);font-size:11px;font-weight:600;letter-spacing:.12em;transition:.25s}
+.nav-cta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #c9ad7225}
+.menu-btn{display:none;background:none;color:var(--gold2);border:1px solid var(--line);padding:8px 12px}
+.hero{min-height:710px;display:grid;place-items:center;position:relative;text-align:center;border-bottom:1px solid var(--line);overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;pointer-events:none}
+.hero:before{width:620px;height:620px;border:1px solid rgba(201,173,114,.09);border-radius:50%;left:50%;top:48%;transform:translate(-50%,-50%);box-shadow:0 0 0 50px rgba(201,173,114,.018),0 0 0 100px rgba(201,173,114,.012)}
+.hero:after{width:1px;height:100%;top:0;left:50%;background:linear-gradient(transparent,rgba(201,173,114,.22),transparent)}
+.hero-content{position:relative;z-index:1;padding:95px 0 105px}
+.eyebrow{font-size:10px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase}
+.hero-mark{font-family:var(--serif);font-size:clamp(78px,14vw,166px);font-weight:400;line-height:.95;letter-spacing:.075em;color:#f0e5cb;text-shadow:0 0 50px #c9ad7212;margin:28px 0 10px}
+.hero-ko{font-size:clamp(20px,3vw,30px);font-weight:300;letter-spacing:.18em;margin:24px 0 14px}
+.hero-ko span{color:var(--gold2);font-weight:500}
+.hero-desc{max-width:590px;margin:0 auto;color:#aaa79f;font-size:13px;line-height:2.15;word-break:keep-all}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:16px;margin:27px 0 32px;color:var(--gold2);font-size:10px;letter-spacing:.16em}
+.hero-meta i{width:4px;height:4px;background:var(--gold);border-radius:50%}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-ghost{background:transparent;color:var(--gold2);border-color:rgba(201,173,114,.5)}
+.scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;color:#817b6d}
+.scroll-cue:after{content:"";display:block;height:28px;width:1px;margin:10px auto 0;background:linear-gradient(var(--gold),transparent)}
+.stats{border-bottom:1px solid var(--line);background:#0d0e10}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);padding:28px 0}
+.stat{text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat strong{display:block;font-family:var(--serif);font-size:34px;font-weight:500;color:var(--gold2);line-height:1.2}
+.stat span{font-size:10px;letter-spacing:.14em;color:var(--muted)}
+section{padding:110px 0}
+.section-head{text-align:center;margin-bottom:48px}
+.kicker{color:var(--gold);font-family:var(--serif);font-size:15px;letter-spacing:.22em}
+h2{font-size:clamp(28px,4vw,43px);font-weight:400;letter-spacing:.05em;margin:8px 0 12px}
+.section-head p{max-width:590px;margin:0 auto;color:var(--muted);font-size:12px;word-break:keep-all}
+.departments{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.dept{position:relative;background:linear-gradient(145deg,#141518,#0e0f11);border:1px solid rgba(201,173,114,.17);padding:27px 25px 24px;min-height:222px;display:flex;flex-direction:column;transition:transform .3s,border-color .3s,background .3s;overflow:hidden}
+.dept:after{content:"";position:absolute;right:-40px;top:-55px;width:130px;height:130px;border:1px solid rgba(201,173,114,.1);transform:rotate(45deg)}
+.dept:hover{transform:translateY(-5px);border-color:rgba(201,173,114,.65);background:linear-gradient(145deg,#1b1914,#101114)}
+.dept-num{font-family:var(--serif);font-size:13px;color:#88754e;letter-spacing:.15em}
+.dept-icon{color:var(--gold2);font-size:20px;margin:16px 0 8px}
+.dept h3{font-size:18px;font-weight:500;margin:0 0 3px}
+.dept-en{font-family:var(--serif);color:var(--gold);font-size:12px;letter-spacing:.14em}
+.dept p{font-size:11px;color:#aaa69d;line-height:1.9;margin:13px 0 20px;word-break:keep-all}
+.dept button{align-self:flex-start;margin-top:auto;border:0;border-bottom:1px solid var(--gold);background:none;color:var(--gold2);font-size:10px;letter-spacing:.12em;padding:0 0 5px}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.role-card{border:1px solid var(--line);padding:30px;background:linear-gradient(135deg,#151518,#0e0f11)}
+.role-top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.role-card h3{font-size:19px;font-weight:400;margin:0}
+.role-card .en{font-family:var(--serif);font-size:13px;letter-spacing:.15em;color:var(--gold)}
+.role-count{font-family:var(--serif);font-size:29px;color:var(--gold2)}
+.role-card p{color:var(--muted);font-size:12px;margin:15px 0 0}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.value{border-top:1px solid var(--gold);padding-top:22px}
+.value .roman{font-family:var(--serif);font-size:16px;color:var(--gold)}
+.value h3{font-weight:500;font-size:16px;margin:8px 0}
+.value p{font-size:12px;color:var(--muted);line-height:2;word-break:keep-all}
+.reward{background:linear-gradient(110deg,#15130f,#101114 60%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.reward-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.reward-copy h2{text-align:left}
+.reward-copy p{font-size:13px;color:var(--muted);line-height:2.2;word-break:keep-all}
+.reward-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.reward-item{border:1px solid var(--line);padding:23px 20px;background:#0c0d0f}
+.reward-item .symbol{font-size:20px;color:var(--gold2)}
+.reward-item h3{font-size:13px;font-weight:500;margin:10px 0 4px}
+.reward-item p{font-size:11px;color:var(--muted);line-height:1.8;margin:0;word-break:keep-all}
+.note{font-size:10px!important;color:#79756d!important;margin-top:18px}
+.apply-section{position:relative}
+.apply-box{max-width:800px;margin:auto;border:1px solid rgba(201,173,114,.4);padding:clamp(25px,6vw,60px);background:radial-gradient(ellipse at 50% 0%,#29211355,transparent 60%),#101114}
+.apply-box .section-head{margin-bottom:30px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+label{font-size:11px;color:#d8c79f;letter-spacing:.06em}
+input,select,textarea{width:100%;background:#0b0c0e;border:1px solid #35312a;color:var(--white);padding:13px 14px;outline:none;border-radius:0;font-size:12px}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+input::placeholder,textarea::placeholder{color:#6e6b64}
+textarea{min-height:115px;resize:vertical}
+select{appearance:none}
+.form-actions{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;margin-top:5px}
+.form-actions button{flex:1;min-width:180px}
+.form-msg{grid-column:1/-1;color:var(--gold2);font-size:12px;min-height:20px}
+.contact{padding:60px 0;text-align:center;border-top:1px solid var(--line);background:#0d0e10}
+.contact h2{font-family:var(--serif);letter-spacing:.16em;color:var(--gold2)}
+.contact p{font-size:12px;color:var(--muted)}
+.contact-id{display:inline-block;margin:12px 0 20px;padding:10px 17px;border:1px solid var(--line);color:var(--gold2);font-size:12px;letter-spacing:.05em}
+footer{border-top:1px solid rgba(201,173,114,.12);padding:24px 0;color:#77736a;font-size:9px;letter-spacing:.12em}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#e5d1a0;color:#111;padding:12px 20px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Rounded premium finish */
+.nav-cta,.btn,.btn-ghost,.menu-btn,
+input,select,textarea,.dept,.role-card,.reward-item,.apply-box,
+.contact-id,.contact-button {
+  border-radius:999px;
+}
+.dept,.role-card,.reward-item,.apply-box { border-radius:22px; }
+input,select,textarea { border-radius:14px; }
+.dept button { border-radius:999px; padding:8px 13px; border:1px solid rgba(201,173,114,.55); }
+.form-actions button { border-radius:999px; }
+.contact-button {
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 25px;margin-top:12px;
+  border:1px solid var(--gold);
+  background:linear-gradient(120deg,#ead9ad,#b6975b);
+  color:#111;font-size:11px;font-weight:600;letter-spacing:.1em;
+  transition:.25s ease;
+}
+.contact-button:hover { transform:translateY(-2px);box-shadow:0 8px 28px #c9ad7240; }
+
+@media(max-width:800px){
+ .navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:#0d0e10;border-bottom:1px solid var(--line);padding:22px;flex-direction:column;gap:18px}
+ .navlinks.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}
+ .hero{min-height:650px}.departments{grid-template-columns:repeat(2,1fr)}.reward-grid{grid-template-columns:1fr;gap:30px}
+ section{padding:80px 0}
+}
+@media(max-width:540px){
+ .wrap{width:min(100% - 30px,1160px)}.nav{height:66px}.navlinks{top:66px}
+ .hero-mark{font-size:clamp(57px,16vw,90px);letter-spacing:.035em}.hero-content{padding:80px 0}
+ .hero-desc{font-size:12px;padding:0 7px}.hero-meta{font-size:9px;gap:9px;flex-wrap:wrap}
+ .statgrid{padding:22px 0}.stat strong{font-size:27px}.stat span{font-size:8px;letter-spacing:.06em}
+ section{padding:68px 0}.section-head{margin-bottom:32px}
+ .departments{grid-template-columns:1fr}.dept{min-height:0;padding:23px}
+ .roles,.values,.reward-list{grid-template-columns:1fr}
+ .role-card{padding:23px}.reward-grid{gap:25px}
+ form{grid-template-columns:1fr}.field.full,.form-actions,.form-msg{grid-column:auto}
+ .form-actions button{width:100%}.apply-box{padding:23px 17px}
+ .footer-inner{justify-content:center;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Bright ivory & gold, softly rounded premium style */
+body { background: radial-gradient(ellipse at top, #fff4d8 0%, var(--bg) 48%, #fffdf8 100%); color:var(--white); }
+header,nav,.nav,.topbar { background:rgba(255,250,240,.88); }
+.dept,.role-card,.reward-item,.apply-box,.contact-id,.hero-card,.stat-card {
+  border-radius:24px !important;
+  background:rgba(255,255,255,.88);
+  border-color:rgba(182,139,61,.24);
+  box-shadow:0 12px 36px rgba(104,77,29,.06);
+}
+.btn,.btn-ghost,.nav-cta,.menu-btn,button { border-radius:999px !important; }
+input,select,textarea { border-radius:16px !important; background:#fffdf8 !important; color:#2b261e !important; border:1px solid rgba(182,139,61,.35) !important; }
+input::placeholder,textarea::placeholder { color:#a39a8b; }
+.contact-button {
+ display:inline-flex;align-items:center;justify-content:center;gap:10px;
+ padding:14px 25px;margin-top:12px;border:1px solid #b68b3d;
+ border-radius:999px;background:linear-gradient(135deg,#f7e6b7,#d5ad61);
+ color:#30230b;font-size:12px;font-weight:700;text-decoration:none;transition:.2s ease;
+}
+.contact-button:hover { transform:translateY(-2px);box-shadow:0 10px 28px rgba(182,139,61,.22); }
+button[type="submit"] { background:linear-gradient(135deg,#f7e6b7,#d5ad61) !important;color:#30230b !important; }
+a { transition:color .2s ease; }
+
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="ETERNITY 홈"><span class="crest"><span>Ｅ</span></span><span>ETERNITY</span></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#about">ABOUT</a><a href="#departments">DEPARTMENTS</a><a href="#benefits">BENEFITS</a><a href="#apply">APPLICATION</a>
+    </nav>
+    <a class="nav-cta" href="#apply">지원서 작성 <span>↗</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false">MENU</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-content">
+    <div class="eyebrow">THE BEGINNING OF SOMETHING ETERNAL</div>
+    <div class="hero-mark">ETERNITY</div>
+    <div class="eyebrow">永遠 · EST. 2026</div>
+    <h1 class="hero-ko">영원의 첫 시작을 <span>함께하다</span></h1>
+    <p class="hero-desc">하나의 커뮤니티를 넘어, 오래도록 기억될 문화를 만들어 갑니다.<br>영원의 새로운 역사를 함께할 초기 핵심 관리진을 모집합니다.</p>
+    <div class="hero-meta"><span>FIRST MANAGEMENT RECRUITMENT</span><i></i><span>GRAND OPENING · 2026.11.01</span></div>
+    <div class="hero-actions">
+      <a class="btn" href="#apply">지원 시작하기 <span>↗</span></a>
+      <a class="btn btn-ghost" href="#departments">모집 분야 살펴보기</a>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL TO DISCOVER</div>
+</section>
+
+<div class="stats">
+  <div class="wrap statgrid">
+    <div class="stat"><strong>07</strong><span>OPEN DEPARTMENTS</span></div>
+    <div class="stat"><strong>01 NOV</strong><span>OFFICIAL OPENING · 2026</span></div>
+    <div class="stat"><strong>∞</strong><span>GROW TOGETHER</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">01 / OUR PHILOSOPHY</div><h2>좋은 커뮤니티는 사람으로 완성됩니다.</h2><p>영원은 책임감 있는 운영, 따뜻한 소통, 그리고 함께 성장하는 문화를 지향합니다. 경력보다 태도를, 완벽함보다 진정성을 중요하게 생각합니다.</p></div>
+    <div class="values">
+      <article class="value"><div class="roman">I. INTEGRITY</div><h3>신뢰를 바탕으로</h3><p>공정한 기준과 일관된 운영으로 누구나 안심하고 머물 수 있는 공간을 만듭니다.</p></article>
+      <article class="value"><div class="roman">II. TOGETHER</div><h3>함께 성장하는 팀</h3><p>서로의 의견을 존중하고, 각자의 장점을 모아 더 나은 커뮤니티를 만들어 갑니다.</p></article>
+      <article class="value"><div class="roman">III. CONTINUITY</div><h3>오래도록 이어질 가치</h3><p>순간적인 성과보다 지속 가능한 운영과 건강한 커뮤니티 문화를 추구합니다.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="departments" style="padding-top:35px">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">02 / FIND YOUR PLACE</div><h2>모집 부서</h2><p>당신의 관심과 강점이 영원의 다음 장면을 만듭니다.<br>원하는 부서를 선택하고 지원을 시작해 보세요.</p></div>
+    <div class="departments">
+      <article class="dept"><div class="dept-num">DEPARTMENT / 01</div><div class="dept-icon">✧</div><h3>홍보팀</h3><div class="dept-en">PUBLIC RELATIONS</div><p>영원의 매력을 알리고 새로운 인연과 커뮤니티를 연결합니다.</p><button data-dept="홍보팀">이 부서에 지원하기 ↗</button></article>
+      <article class="dept"><div class="dept-num">DEPARTMENT / 02</div><div class="dept-icon">◇</div><h3>보안팀</h3><div class="dept-en">SECURITY</div><p>안전한 서버 환경과 질서 있는 커뮤니티 운영을 지원합니다.</p><button data-dept="보안팀">이 부서에 지원하기 ↗</button></article>
+      <article class="dept"><div class="dept-num">DEPARTMENT / 03</div><div class="dept-icon">⚔</div><h3>내전팀</h3><div class="dept-en">GAMING & SCRIMS</div><p>게임 내전과 다양한 참여형 콘텐츠를 기획하고 진행합니다.</p><button data-dept="내전팀">이 부서에 지원하기 ↗</button></article>
+      <article class="dept"><div class="dept-num">DEPARTMENT / 04</div><div class="dept-icon">✳</div><h3>뉴비관리팀</h3><div class="dept-en">NEW MEMBER CARE</div><p>새로 합류한 회원이 자연스럽게 적응하도록 돕습니다.</p><button data-dept="뉴비관리팀">이 부서에 지원하기 ↗</button></article>
+      <article class="dept"><div class="dept-num">DEPARTMENT / 05</div><div class="dept-icon">⌘</div><h3>안내팀</h3><div class="dept-en">INFORMATION</div><p>서버 이용 안내와 문의 응대를 통해 편안한 이용 경험을 만듭니다.</p><button data-dept="안내팀">이 부서에 지원하기 ↗</button></article>
+      <article class="dept"><div class="dept-num">DEPARTMENT / 06</div><div class="dept-icon">♜</div><h3>총괄관리팀</h3><div class="dept-en">GENERAL MANAGEMENT</div><p>운영 전반을 조율하고 부서 간 협업과 업무 흐름을 관리합니다.</p><button data-dept="총괄관리팀">이 부서에 지원하기 ↗</button></article>
+      <article class="dept"><div class="dept-num">DEPARTMENT / 07</div><div class="dept-icon">✧</div><h3>기획팀</h3><div class="dept-en">PLANNING & EVENTS</div><p>이벤트와 신규 콘텐츠를 기획해 영원에 새로운 활력을 더합니다.</p><button data-dept="기획팀">이 부서에 지원하기 ↗</button></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:30px">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">03 / OPEN POSITIONS</div><h2>직책 안내</h2><p>역할에 맞는 책임과 권한을 바탕으로 함께 운영을 만들어 갑니다.</p></div>
+    <div class="roles">
+      <article class="role-card"><div class="role-top"><div><div class="en">LEADERSHIP</div><h3>팀장 · 부팀장</h3></div><div class="role-count">1–2 <span style="font-size:12px">명/부서</span></div></div><p>책임감, 협업 능력, 업무 수행 역량을 종합적으로 고려해 선발합니다.</p></article>
+      <article class="role-card"><div class="role-top"><div><div class="en">TEAM MEMBERS</div><h3>일반 팀원</h3></div><div class="role-count">OPEN</div></div><p>인원 제한 없이 상시 모집합니다. 초보자도 적극적으로 지원할 수 있습니다.</p></article>
+    </div>
+    <p class="note" style="text-align:center">모든 지원자는 동등한 기준에서 검토하며, 친분이나 인맥에 따른 특혜 없이 성실성·책임감·진정성을 중심으로 평가합니다.</p>
+  </div>
+</section>
+
+<section class="reward" id="benefits">
+  <div class="wrap reward-grid">
+    <div class="reward-copy"><div class="kicker">04 / REWARDS & BENEFITS</div><h2>노력의 가치를<br>존중합니다.</h2><p>관리진의 시간과 기여를 당연하게 여기지 않습니다. 영원은 지속 가능한 운영을 목표로 하며, 운영 기여도와 예산에 따라 실질적인 보상을 제공할 계획입니다.</p><p class="note">※ 보상은 운영 기여도, 예산 및 별도 지급 기준에 따라 달라질 수 있습니다. 장기 운영은 목표이며, 구체적인 운영 계획과 보상 조건은 담당자에게 확인해 주세요.</p></div>
+    <div class="reward-list">
+      <article class="reward-item"><div class="symbol">✧</div><h3>Discord Nitro</h3><p>운영 기여도에 따른 Nitro 지원</p></article>
+      <article class="reward-item"><div class="symbol">◇</div><h3>프로필 혜택</h3><p>프로필 및 프레임 효과 지원</p></article>
+      <article class="reward-item"><div class="symbol">✦</div><h3>기프티콘</h3><p>모바일 기프티콘 등 리워드</p></article>
+      <article class="reward-item"><div class="symbol">₩</div><h3>추가 보상</h3><p>기준에 따른 현금성 리워드 검토</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <div class="apply-box">
+      <div class="section-head"><div class="kicker">05 / APPLICATION</div><h2>당신의 이야기를 들려주세요.</h2><p>지원서를 작성하고 제출하면 담당자 디스코드 DM으로 전송됩니다.<br>지원 전 입력 내용을 확인해 주세요.</p></div>
+      <form id="applicationForm">
+        <div class="field"><label for="discord">DISCORD USERNAME *</label><input id="discord" name="discord" placeholder="디스코드 사용자명" required maxlength="80"></div>
+        <div class="field"><label for="age">나이 (선택)</label><input id="age" name="age" placeholder="선택 입력" maxlength="20"></div>
+        <div class="field"><label for="department">지원 부서 *</label><select id="department" name="department" required><option value="">부서를 선택해 주세요</option><option>홍보팀</option><option>보안팀</option><option>내전팀</option><option>뉴비관리팀</option><option>안내팀</option><option>총괄관리팀</option><option>기획팀</option></select></div>
+        <div class="field"><label for="position">희망 직책 *</label><select id="position" name="position" required><option value="">직책을 선택해 주세요</option><option>팀장</option><option>부팀장</option><option>팀원</option></select></div>
+        <div class="field full"><label for="experience">관련 경험 (선택)</label><input id="experience" name="experience" placeholder="관련 경험 또는 자신 있는 점" maxlength="500"></div>
+        <div class="field full"><label for="motivation">지원 동기 *</label><textarea id="motivation" name="motivation" placeholder="지원하게 된 이유와 함께하고 싶은 활동을 작성해 주세요." required maxlength="3000"></textarea></div>
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+        <div class="form-actions"><button class="btn" type="submit">지원서 내용 복사하기 ↗</button><button class="btn btn-ghost" type="reset">다시 작성하기</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="contact">
+  <div class="wrap">
+    <div class="kicker">LET'S BUILD ETERNITY</div>
+    <h2>ETERNITY · 永遠</h2>
+    <p>영원의 첫 시작을 함께할 소중한 인연을 기다립니다.</p>
+    <div class="contact-id">담당자 Discord ID · 1559815109071732808</div>
+    <a class="contact-button" href="https://discord.com/users/1559815109071732808" target="_blank" rel="noopener noreferrer">담당자에게 문의하기 ↗</a><br>
+    <a class="contact-button" href="https://discord.com/users/1559815109071732808" target="_blank" rel="noopener noreferrer">담당자에게 문의하기 ↗</a>
+    <br><br>
+    <a class="btn btn-ghost" href="#apply">지원서 작성하기 ↑</a>
+  </div>
+</div>
+</main>
+<footer><div class="wrap footer-inner"><span>© 2026 ETERNITY COMMUNITY</span><span>FIRST MANAGEMENT RECRUITMENT · 2026.11.01</span></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite">지원서 내용이 복사되었습니다.</div>
+
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const navlinks=document.getElementById('navlinks');
+menuBtn.addEventListener('click',()=>{
+  const opened=navlinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded',String(opened));
+});
+navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  navlinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');
+}));
+document.querySelectorAll('[data-dept]').forEach(btn=>btn.addEventListener('click',()=>{
+  document.getElementById('department').value=btn.dataset.dept;
+  document.getElementById('apply').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>document.getElementById('discord').focus({preventScroll:true}),500);
+}));
+const form=document.getElementById('applicationForm');
+const msg=document.getElementById('formMsg');
+const toast=document.getElementById('toast');
+form.addEventListener('submit',async event=>{
+  event.preventDefault();
+  if(!form.reportValidity()) return;
+  const submitButton=form.querySelector('[type="submit"]');
+  const originalText=submitButton ? submitButton.textContent : '';
+  if(submitButton){submitButton.disabled=true;submitButton.textContent='전송 중...';}
+  msg.textContent='지원서를 담당자에게 전송하고 있습니다.';
+  const data=Object.fromEntries(new FormData(form).entries());
+  try {
+    const response=await fetch('/api/apply',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok) throw new Error(result.error || '전송에 실패했습니다.');
+    msg.textContent='지원서가 담당자 디스코드 DM으로 전송되었습니다. 감사합니다!';
+    toast.textContent='지원서 전송 완료!';
+    toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3200);
+    form.reset();
+  } catch(error) {
+    msg.textContent='DM 전송에 실패했습니다. 서버 설정과 담당자의 DM 수신 설정을 확인한 뒤 다시 시도해 주세요. ('+error.message+')';
+  } finally {
+    if(submitButton){submitButton.disabled=false;submitButton.textContent=originalText;}
+  }
+});
+form.addEventListener('reset',()=>{msg.textContent='';});
+</script>
+</body>
+</html>
