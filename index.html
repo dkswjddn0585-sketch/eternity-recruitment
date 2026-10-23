@@ -18,7 +18,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:300;line-height:1.75;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 0%,rgba(146,113,54,.12),transparent 42%),linear-gradient(180deg,#0a0b0d 0%,#090a0c 55%,#0d0d0e 100%)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 0%,rgba(182,139,61,.13),transparent 48%),linear-gradient(180deg,#fff8e9 0%,#fffaf0 55%,#fffdf8 100%)}
 a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit}
 button,a{ -webkit-tap-highlight-color:transparent}
@@ -182,6 +182,34 @@ input::placeholder,textarea::placeholder { color:#a39a8b; }
 button[type="submit"] { background:linear-gradient(135deg,#f7e6b7,#d5ad61) !important;color:#30230b !important; }
 a { transition:color .2s ease; }
 
+
+/* FINAL READABILITY FIX: ivory background, clear text, consistent Korean font */
+:root {
+  --bg: #fffaf0;
+  --panel: #ffffff;
+  --panel2: #fff5df;
+  --gold: #9a7029;
+  --gold2: #79551c;
+  --muted: #655b4c;
+  --line: rgba(154,112,41,.30);
+  --white: #292319;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Noto Sans KR", sans-serif;
+}
+body { background: radial-gradient(ellipse at top,#fff4d8 0%,#fffaf0 48%,#fffdf8 100%) !important; color:#292319 !important; font-family:"Noto Sans KR",sans-serif !important; font-weight:400; }
+body:before { background:radial-gradient(ellipse at 50% 0%,rgba(182,139,61,.10),transparent 48%),linear-gradient(180deg,#fff8e9 0%,#fffaf0 55%,#fffdf8 100%) !important; }
+header,.navlinks,.stats,.contact { background:rgba(255,250,240,.96) !important; }
+.navlinks { color:#51432f !important; }
+.hero-mark { color:#79551c !important; text-shadow:none !important; }
+.hero-ko,h2,h3,.brand { color:#292319; }
+.hero-desc,.section-head p,.dept p,.role-card p,.value p,.reward-copy p,.reward-item p,.contact p { color:#655b4c !important; }
+.dept,.role-card,.reward-item,.apply-box { background:rgba(255,255,255,.96) !important; border-color:rgba(154,112,41,.30) !important; }
+input,select,textarea { color:#292319 !important; background:#fff !important; border-color:rgba(154,112,41,.38) !important; }
+input::placeholder,textarea::placeholder { color:#817564 !important; }
+.eyebrow,.kicker,.dept-num,.dept-en,.value .roman,.role-card .en,.contact h2,.stat strong,.dept-icon,.dept button { color:#79551c !important; }
+label { color:#51432f !important; }
+.scroll-cue,.stat span,footer { color:#655b4c !important; }
+
 </style>
 </head>
 <body>
@@ -276,14 +304,15 @@ a { transition:color .2s ease; }
     <div class="apply-box">
       <div class="section-head"><div class="kicker">05 / APPLICATION</div><h2>당신의 이야기를 들려주세요.</h2><p>지원서를 작성하고 제출하면 담당자 디스코드 DM으로 전송됩니다.<br>지원 전 입력 내용을 확인해 주세요.</p></div>
       <form id="applicationForm">
-        <div class="field"><label for="discord">DISCORD USERNAME *</label><input id="discord" name="discord" placeholder="디스코드 사용자명" required maxlength="80"></div>
-        <div class="field"><label for="age">나이 (선택)</label><input id="age" name="age" placeholder="선택 입력" maxlength="20"></div>
-        <div class="field"><label for="department">지원 부서 *</label><select id="department" name="department" required><option value="">부서를 선택해 주세요</option><option>홍보팀</option><option>보안팀</option><option>내전팀</option><option>뉴비관리팀</option><option>안내팀</option><option>총괄관리팀</option><option>기획팀</option></select></div>
-        <div class="field"><label for="position">희망 직책 *</label><select id="position" name="position" required><option value="">직책을 선택해 주세요</option><option>팀장</option><option>부팀장</option><option>팀원</option></select></div>
-        <div class="field full"><label for="experience">관련 경험 (선택)</label><input id="experience" name="experience" placeholder="관련 경험 또는 자신 있는 점" maxlength="500"></div>
-        <div class="field full"><label for="motivation">지원 동기 *</label><textarea id="motivation" name="motivation" placeholder="지원하게 된 이유와 함께하고 싶은 활동을 작성해 주세요." required maxlength="3000"></textarea></div>
+        <div class="field"><label for="applicantName">이름 *</label><input id="applicantName" name="name" placeholder="이름을 입력해 주세요" required maxlength="80"></div>
+        <div class="field"><label for="age">나이 *</label><input id="age" name="age" placeholder="나이를 입력해 주세요" required maxlength="20"></div>
+        <div class="field full"><label for="departmentPosition">원하시는 부서 / 직급 *</label><input id="departmentPosition" name="department_position" placeholder="예: 홍보팀 / 팀장" required maxlength="120"></div>
+        <div class="field"><label for="managementExperience">관리진 경력 유/무 *</label><select id="managementExperience" name="management_experience" required><option value="">선택해 주세요</option><option>유</option><option>무</option></select></div>
+        <div class="field"><label for="currentManagement">현재 관리진 유/무 *</label><select id="currentManagement" name="current_management" required><option value="">선택해 주세요</option><option>유</option><option>무</option></select></div>
+        <div class="field full"><label for="pastManagementExperience">과거 관리진 경력</label><textarea id="pastManagementExperience" name="past_management_experience" placeholder="과거에 맡았던 서버/부서/직급 등을 작성해 주세요. 경력이 없다면 '없음'이라고 적어 주세요." maxlength="1500"></textarea></div>
+        <div class="field full"><label for="availableTime">활동가능시간대 *</label><input id="availableTime" name="available_time" placeholder="예: 평일 오후 6시~10시 / 주말 대부분 가능" required maxlength="200"></div>
         <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
-        <div class="form-actions"><button class="btn" type="submit">지원서 내용 복사하기 ↗</button><button class="btn btn-ghost" type="reset">다시 작성하기</button></div>
+        <div class="form-actions"><button class="btn" type="submit">지원서 제출하기 ↗</button><button class="btn btn-ghost" type="reset">다시 작성하기</button></div>
       </form>
     </div>
   </div>
@@ -295,7 +324,6 @@ a { transition:color .2s ease; }
     <h2>ETERNITY · 永遠</h2>
     <p>영원의 첫 시작을 함께할 소중한 인연을 기다립니다.</p>
     <div class="contact-id">담당자 Discord ID · 1559815109071732808</div>
-    <a class="contact-button" href="https://discord.com/users/1559815109071732808" target="_blank" rel="noopener noreferrer">담당자에게 문의하기 ↗</a><br>
     <a class="contact-button" href="https://discord.com/users/1559815109071732808" target="_blank" rel="noopener noreferrer">담당자에게 문의하기 ↗</a>
     <br><br>
     <a class="btn btn-ghost" href="#apply">지원서 작성하기 ↑</a>
@@ -303,7 +331,7 @@ a { transition:color .2s ease; }
 </div>
 </main>
 <footer><div class="wrap footer-inner"><span>© 2026 ETERNITY COMMUNITY</span><span>FIRST MANAGEMENT RECRUITMENT · 2026.11.01</span></div></footer>
-<div class="toast" id="toast" role="status" aria-live="polite">지원서 내용이 복사되었습니다.</div>
+<div class="toast" id="toast" role="status" aria-live="polite">지원서 전송 완료!</div>
 
 <script>
 const menuBtn=document.getElementById('menuBtn');
@@ -316,9 +344,9 @@ navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   navlinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');
 }));
 document.querySelectorAll('[data-dept]').forEach(btn=>btn.addEventListener('click',()=>{
-  document.getElementById('department').value=btn.dataset.dept;
+  document.getElementById('departmentPosition').value=btn.dataset.dept;
   document.getElementById('apply').scrollIntoView({behavior:'smooth'});
-  setTimeout(()=>document.getElementById('discord').focus({preventScroll:true}),500);
+  setTimeout(()=>document.getElementById('applicantName').focus({preventScroll:true}),500);
 }));
 const form=document.getElementById('applicationForm');
 const msg=document.getElementById('formMsg');
